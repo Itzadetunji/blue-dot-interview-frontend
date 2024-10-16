@@ -20,22 +20,23 @@ const ProductCard: React.FC<{
 	>;
 }> = ({ product, setShowAddToCart, setActiveProduct }) => {
 	const getCartQuery = GetCartSlice();
-const navigate = useNavigate()
+	const navigate = useNavigate();
+
 	return (
-		<Card className="w-[350px]">
+		<Card className="flex w-[350px] flex-col">
 			<CardHeader>
 				<CardTitle>{product.name}</CardTitle>
 				<CardDescription>{product.description}</CardDescription>
 			</CardHeader>
-			<CardContent className="flex-1">
-				<div className="space-y-2.5">
+			<CardContent className="flex flex-1">
+				<div className="flex flex-1 flex-col space-y-2.5">
 					<img
 						src={product.image}
 						alt={product.name + " image"}
-						className="rounded-lg shadow-sm"
+						className="flex-1 rounded-lg shadow-sm"
 					/>
 					<p>${product.price}</p>
-					<Badge variant="secondary" className="capitalize">
+					<Badge variant="secondary" className="w-fit capitalize">
 						{product.category.name}
 					</Badge>
 				</div>
@@ -63,7 +64,7 @@ const navigate = useNavigate()
 						<Button
 							type="button"
 							onClick={() => {
-								navigate("/dashboard/cart")
+								navigate("/dashboard/cart");
 							}}
 						>
 							View in Cart

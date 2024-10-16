@@ -6,4 +6,4 @@ export const CreateOrderSchema = z.object({
 	total: z.number(),
 });
 
-export type CreateOrderType = z.infer<typeof CreateOrderSchema>
+export type CreateOrderType = z.infer<typeof CreateOrderSchema>;

@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ClearCartSlice, GetCartSlice } from "@/store/slices/cart";
 import { ClearCart } from "@/components/cart/ClearCart";
 import { CheckoutProducts } from "@/components/cart/Checkout";
+import { Badge } from "@/components/ui/badge";
 
 interface Product {
 	_id: string;
@@ -73,7 +74,7 @@ const MyCart: React.FC = () => {
 											height={100}
 											className="rounded-md"
 										/>
-										<div className="flex-1">
+										<div className="flex flex-1 flex-col space-y-1">
 											<CardTitle>
 												{item.product.name}
 											</CardTitle>
@@ -83,44 +84,13 @@ const MyCart: React.FC = () => {
 											<p className="text-sm font-semibold">
 												${item.product.price.toFixed(2)}
 											</p>
-											<p className="text-sm">
+											<Badge
+												variant="secondary"
+												className="w-fit capitalize"
+											>
 												{item.product.category.name}
-											</p>
+											</Badge>
 										</div>
-										{/* <div className="flex items-center space-x-2">
-											<Button
-												variant="outline"
-												size="icon"
-												onClick={() =>
-													updateQuantity(item._id, -1)
-												}
-											>
-												<Minus className="h-4 w-4" />
-											</Button>
-											<span className="w-8 text-center">
-												{item.quantity}
-											</span>
-											<Button
-												variant="outline"
-												size="icon"
-												onClick={() =>
-													updateQuantity(item._id, 1)
-												}
-												disabled={
-													item.quantity >=
-													item.product.totalInStock
-												}
-											>
-												<Plus className="h-4 w-4" />
-											</Button>
-										</div> */}
-										{/* <Button
-											variant="destructive"
-											size="icon"
-											onClick={() => removeItem(item._id)}
-										>
-											<Trash2 className="h-4 w-4" />
-										</Button> */}
 									</div>
 								</CardContent>
 							</Card>

@@ -11,11 +11,7 @@ import { AxiosResponse } from "axios";
 import React from "react";
 
 export const CreateProductSlice = () => {
-	return useMutation<
-		AxiosResponse<CategoryType>,
-		Error,
-		AddCategoryType
-	>({
+	return useMutation<AxiosResponse<CategoryType>, Error, AddCategoryType>({
 		mutationFn: APIVersion1CreateCategory,
 	});
 };
@@ -43,10 +39,7 @@ export const GetCategorySlice = (
 		return;
 	}
 ) => {
-	const getRequestQuery = useQuery<
-		AxiosResponse<CategoryType>,
-		Error
-	>({
+	const getRequestQuery = useQuery<AxiosResponse<CategoryType>, Error>({
 		queryKey: ["category-" + id],
 		queryFn: () => APIVersion1GetCategory({ id }),
 	});
@@ -69,11 +62,7 @@ export const UpdateCategorySlice = () => {
 };
 
 export const DeleteCategorySlice = () => {
-	return useMutation<
-		AxiosResponse<CategoryType>,
-		Error,
-		{ id: string }
-	>({
+	return useMutation<AxiosResponse<CategoryType>, Error, { id: string }>({
 		mutationFn: APIVersion1DeleteCategory,
 	});
 };

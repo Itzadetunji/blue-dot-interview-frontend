@@ -7,18 +7,16 @@ import { AddCategoryType, CategoryType } from "@/types/categories";
 import { AddCartResponseType, AddCartType, CartType } from "@/types/cart";
 import { CreateOrderType } from "@/types/order";
 
+// Authentication
 export const APIVersion1Register = async (
 	data: RegisterUserType
-): Promise<AxiosResponse<User>> => $http.post(`/auth/register`, data);
+): Promise<User> => $http.post(`/auth/register`, data);
 
-export const APIVersion1Login = async (
-	data: LoginUserType
-): Promise<AxiosResponse<User>> =>
+export const APIVersion1Login = async (data: LoginUserType): Promise<User> =>
 	$http.post(`/auth/login`, data).then((res) => res.data);
 
-export const APIVersion1Get = async (): Promise<
-	AxiosResponse<Record<string, string>>
-> => $http.get(`/auth/login`).then((res) => res.data);
+export const APIVersion1Logout = async (): Promise<unknown> =>
+	$http.post("/auth/logout").then((res) => res.data);
 
 // Products API
 export const APIVersion1CreateProduct = async (

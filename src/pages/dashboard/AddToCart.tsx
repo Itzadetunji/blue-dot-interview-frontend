@@ -25,15 +25,10 @@ const AddToCart: React.FC<{
 	const addCartMutation = AddCartSlice();
 	const queryClient = useQueryClient();
 
-	const {
-		handleSubmit,
-		getValues,
-		watch,
-		setValue,
-		reset,
-	} = useForm<AddCartType>({
-		resolver: zodResolver(AddCartSchema),
-	});
+	const { handleSubmit, getValues, watch, setValue, reset } =
+		useForm<AddCartType>({
+			resolver: zodResolver(AddCartSchema),
+		});
 
 	// Handler for the plus button
 	const increaseQuantity = () => {

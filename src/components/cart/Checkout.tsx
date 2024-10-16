@@ -51,8 +51,8 @@ export const CheckoutProducts: React.FC<{
 
 		checkoutMutation.mutate(data, {
 			onSuccess: () => {
-				toast.success("Order Created  🎉", { duration: 4000});
-				
+				toast.success("Order Created  🎉", { duration: 4000 });
+
 				queryClient.invalidateQueries({
 					queryKey: ["my-cart"],
 				});
