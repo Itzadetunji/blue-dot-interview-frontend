@@ -44,6 +44,7 @@ import { useState } from "react";
 import { ProductType } from "@/types/product";
 import { DeleteProduct } from "@/components/products/DeleteProduct";
 import { EditProduct } from "@/components/products/EditProduct";
+import { AddCategory } from "@/components/products/AddCategory";
 
 const MyProducts: React.FC = () => {
 	const [queryParams, setQueryParams] = useState<{
@@ -101,8 +102,10 @@ const MyProducts: React.FC = () => {
 						</SelectContent>
 					</Select>
 				</div>
-
-				<AddProduct params={queryParams} />
+				<div className="flex items-center space-x-4">
+					<AddCategory params={queryParams} />
+					<AddProduct params={queryParams} />
+				</div>
 			</div>
 
 			<Card x-chunk="dashboard-06-chunk-0">

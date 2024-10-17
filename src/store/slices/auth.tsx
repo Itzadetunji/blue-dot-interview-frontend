@@ -6,15 +6,16 @@ import {
 import { LoginUserType, RegisterUserType } from "@/types";
 import { useMutation } from "@tanstack/react-query";
 import { User } from "../useUserStore";
+import { AxiosResponse } from "axios";
 
 export const RegisterUserSlice = () => {
-	return useMutation<User, Error, RegisterUserType>({
+	return useMutation<AxiosResponse<User>, Error, RegisterUserType>({
 		mutationFn: APIVersion1Register,
 	});
 };
 
 export const LoginUserSlice = () => {
-	return useMutation<User, Error, LoginUserType>({
+	return useMutation<AxiosResponse<User>, Error, LoginUserType>({
 		mutationFn: APIVersion1Login,
 	});
 };

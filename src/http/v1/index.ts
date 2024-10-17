@@ -10,9 +10,11 @@ import { CreateOrderType } from "@/types/order";
 // Authentication
 export const APIVersion1Register = async (
 	data: RegisterUserType
-): Promise<User> => $http.post(`/auth/register`, data);
+): Promise<AxiosResponse<User>> => $http.post(`/auth/register`, data);
 
-export const APIVersion1Login = async (data: LoginUserType): Promise<User> =>
+export const APIVersion1Login = async (
+	data: LoginUserType
+): Promise<AxiosResponse<User>> =>
 	$http.post(`/auth/login`, data).then((res) => res.data);
 
 export const APIVersion1Logout = async (): Promise<unknown> =>

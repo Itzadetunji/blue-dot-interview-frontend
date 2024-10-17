@@ -33,9 +33,9 @@ const SignUp: React.FC = () => {
 	const onSubmit: SubmitHandler<RegisterUserType> = async (data) => {
 		registerUserMutaion.mutate(data, {
 			onSuccess: (data) => {
-				setUser(data);
+				setUser(data.data);
 				toast.success("Account Created Successfully 🎉");
-				setCookie("access-token", data.token, 7);
+				setCookie("access-token", data.data.token, 7);
 				setTimeout(() => {
 					navigate("/dashboard/shop");
 				}, 1000);

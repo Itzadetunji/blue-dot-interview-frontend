@@ -34,9 +34,9 @@ const SignIn: React.FC = () => {
 	const onSubmit: SubmitHandler<LoginUserType> = async (data) => {
 		loginUserMutaion.mutate(data, {
 			onSuccess: (data) => {
-				setUser(data);
+				setUser(data.data);
 				toast.success("Login Successful 🎉");
-				setCookie("access-token", data.token, 7);
+				setCookie("access-token", data.data.token, 7);
 				setTimeout(() => {
 					navigate("/dashboard/shop");
 				}, 1000);

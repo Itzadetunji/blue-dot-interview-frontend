@@ -10,7 +10,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
 import React from "react";
 
-export const CreateProductSlice = () => {
+export const CreateCategorySlice = () => {
 	return useMutation<AxiosResponse<CategoryType>, Error, AddCategoryType>({
 		mutationFn: APIVersion1CreateCategory,
 	});
