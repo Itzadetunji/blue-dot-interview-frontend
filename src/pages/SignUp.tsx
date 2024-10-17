@@ -105,7 +105,7 @@ const SignUp: React.FC = () => {
 								onClick={handleSubmit(onSubmit)}
 								disabled={registerUserMutaion.isPending}
 							>
-								Login
+								Sign up
 							</Button>
 						</div>
 						<div className="mt-4 text-center text-sm">
